@@ -28,12 +28,25 @@ var sum = function(array) {
   var current = slicedArr.shift();
 
   counter++;
-  return current + sum(slicedArr);  
+  return current + sum(slicedArr);
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+  let stringedArr = array.toString();
+  let joinedArr = stringedArr.split(',');
+
+  let counter = 0;
+  let slicedArr = joinedArr.slice(counter);
+  let current = slicedArr.shift();
+  let intoNum = parseInt(current);
+
+  counter++;
+  return intoNum + arraySum(slicedArr);
 };
 
 // 4. Check if a number is even.
