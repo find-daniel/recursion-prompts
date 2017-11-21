@@ -37,13 +37,13 @@ var arraySum = function(array) {
   if (array.length === 0) {
     return 0;
   }
-  let stringedArr = array.toString();
-  let joinedArr = stringedArr.split(',');
+  var stringedArr = array.toString();
+  var joinedArr = stringedArr.split(',');
 
-  let counter = 0;
-  let slicedArr = joinedArr.slice(counter);
-  let current = slicedArr.shift();
-  let intoNum = parseInt(current);
+  var counter = 0;
+  var slicedArr = joinedArr.slice(counter);
+  var current = slicedArr.shift();
+  var intoNum = parseInt(current);
 
   counter++;
   return intoNum + arraySum(slicedArr);
@@ -58,12 +58,12 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n) {
   if (n > 0) {
-    let counter = n - 1;
+    var counter = n - 1;
     return counter + sumBelow(n - 1);
   } else if (n === 0) {
     return 0;
   } else {
-    let counter = n + 1
+    var counter = n + 1;
     return counter + sumBelow(n + 1);
   }
 };
@@ -71,6 +71,12 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var results = [];
+  if (x === y) {
+    return results;
+  }
+  results.push(x + 1);
+  return results.concat(range(x + 1, y));
 };
 
 // 7. Compute the exponent of a number.
@@ -79,6 +85,11 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  } else if (exp === 1) {
+    return base;
+  }
 };
 
 // 8. Determine if a number is a power of two.
